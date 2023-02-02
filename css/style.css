@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    margin: auto;
+    height: 100vh;
+}
+
+header {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+header h3 {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+header a {
+    text-decoration: none;
+    color: #000;
+}
+
+header button {
+    background: white;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+.menu-icon {
+    width: 35px;
+    height: 4px;
+    background-color: black;
+    margin: 4px 0;
+    opacity: 70%;
+}
+
+main {
+    color: #000;
+    height: 90vh;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.sidebar {
+    padding: 1rem;
+    width: 10vw;
+    height: 100vh;
+    background: #fff;
+    border: solid #fff;
+    border-top: 0;
+    border-bottom: 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.side-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar li {
+    list-style: none;
+    padding: 10px;
+}
+
+.logout-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: black;
+}
+
+.container {
+    margin: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: center;
+    position: relative;
+}
+
+main .card {
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.8px);
+    -webkit-backdrop-filter: blur(7.8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.h-title {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    background-color: #008cba;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+.file-input {
+    margin-top: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+label {
+    padding: 0;
+    margin: 0;
+    font-size: 9px;
+    text-align: start;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.card-profile {
+    padding: 2rem;
+    height: 22rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10rem;
+}
+
+.profile-preview {
+    display: flex;
+}
+
+.profile-title {
+    font-size: 13px;
+    font-style: italic;
+    opacity: 70%;
+}
+
+.img-profile {
+    width: 80px;
+    margin-right: 10px;
+}
+
+.profile-preview {
+    margin-bottom: 10px;
+}
+
+.name-title {
+    align-self: center;
+}
+
+.pform-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.pform-data > * {
+    margin-bottom: 10px;
+}
+
+.card-project {
+    padding: 2rem;
+    height: 22rem;
+}
+
+.project-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-form input {
+    margin-bottom: 10px;
+}
+
+.type-language input[type="radio"] {
+    display: none;
+}
+
+.type-language label {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.type-language input[type="radio"]:checked + label {
+    background-color: gray;
+    color: white;
+}
+
+.card-certificate {
+    padding: 2rem;
+    height: 22rem;
+}
+
+.form-certificate {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-certificate > * {
+    margin-bottom: 10px;
+}
+
+footer {
+    padding: 1rem;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+}
+
+@media screen and (max-width: 550px) {
+    .container {
+        flex-direction: column;
+        padding: 0;
+        overflow: scroll;
+    }
+    .container .card {
+        margin: 0;
+        margin-bottom: 10px;
+        width: 90%;
+    }
+
+    .card-profile {
+    }
+
+    .sidebar {
+        padding-left: 2px;
+        padding-right: 4px;
+        width: 30vw;
+    }
+    .logout-btn {
+        margin-left: 8px;
+        margin-right: 2px;
+        align-self: center;
+    }
+}

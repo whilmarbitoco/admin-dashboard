@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Whilmar Bitoco | Admin Dashboard</title>
+
+        <meta name="description" content="Admin panel." />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+
+    <body>
+        <div id="app" class="content">
+            <header>
+                <h3><a href="">Whilmar Bitoco</a></h3>
+                <button
+                    @click="toggleside"
+                    id="menu-btn"
+                    class="menu-btn"
+                    type="submit"
+                >
+                    <div class="menu-icon"></div>
+                    <div class="menu-icon"></div>
+                    <div class="menu-icon"></div>
+                </button>
+            </header>
+            <main>
+                <div v-show="state" class="sidebar">
+                    <div                     @click="toggleside">
+                        <div class="menu-icon"></div>
+                        <div class="menu-icon"></div>
+                        <div class="menu-icon"></div>
+                    </div>
+                    <div class="side-content">
+                        <ul>
+                            <li>
+                                <a @click="toggleMenu('profile')">Profile</a>
+                            </li>
+
+                            <li>
+                                <a @click="toggleMenu('project')">Project</a>
+                            </li>
+                            <li>
+                                <a @click="toggleMenu('certificate')"
+                                    >Certificate</a
+                                >
+                            </li>
+                        </ul>
+                        <button
+                            @click="logout"
+                            class="logout-btn"
+                            type="submit"
+                        >
+                            logout
+                        </button>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div id="profile" class="card card-profile">
+                        <h3 class="h-title">Edit Profile:</h3>
+                        <div class="profile-preview">
+                            <img
+                                class="img-profile"
+                                :src="profile[0].img"
+                                alt="profile preview"
+                            />
+                            <div class="name-title">
+                                <p>Whilmar Bitoco</p>
+                                <p class="profile-title">
+                                    {{ profile[0].title }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-profile">
+                            <form
+                                @submit="profileUp"
+                                class="pform-data"
+                                accept-charset="utf-8"
+                            >
+                                <label for="img-avatar">Upload Avatar</label>
+                                <input
+                                    v-on:change="profile.img"
+                                    class="file-input"
+                                    id="img-avatar"
+                                    type="file"
+                                    name="profile-upload"
+                                    ref="imgAvatar"
+                                />
+
+                                <input
+                                    v-model="profile.title"
+                                    type="text"
+                                    class="profile-btn-sub"
+                                    name="title-profile"
+                                    placeholder="Title"
+                                />
+                                <button class="btn" type="submit">
+                                    Upload
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="project" class="card card-project">
+                        <h3 class="h-title">Add Project:</h3>
+                        <form @submit="projectUp" class="project-form">
+                            <input
+                                v-model="project.name"
+                                type="text"
+                                name="project-name"
+                                id="project-name"
+                                placeholder="Project Name"
+                            />
+                            <input
+                                v-model="project.github"
+                                type="text"
+                                name="project-git"
+                                id="project-git"
+                                placeholder="GitHub repository Link"
+                            />
+                            <input
+                                v-model="project.demo"
+                                type="text"
+                                name="live demo link"
+                                id="live demo link"
+                                placeholder="Live Demo Link"
+                            />
+                            <div class="type-language">
+                                <input
+                                    type="radio"
+                                    id="python"
+                                    name="language"
+                                    value="python"
+                                    v-model="project.language"
+                                    checked
+                                />
+                                <label for="python">Python</label>
+
+                                <input
+                                    type="radio"
+                                    id="php"
+                                    name="language"
+                                    value="php"
+                                    v-model="project.language"
+                                />
+                                <label for="php">PHP</label>
+
+                                <input
+                                    type="radio"
+                                    id="javascript"
+                                    name="language"
+                                    value="javascript"
+                                    v-model="project.language"
+                                />
+                                <label for="javascript">JavaScript</label>
+
+                                <input
+                                    type="radio"
+                                    id="java"
+                                    name="language"
+                                    value="java"
+                                    v-model="project.language"
+                                />
+                                <label for="java">Java</label>
+                            </div>
+
+                            <button class="btn" type="submit">Add</button>
+                        </form>
+                    </div>
+                    <div id="certificate" class="card card-certificate">
+                        <h3 class="h-title">Add Certificate:</h3>
+                        <form @submit="certificateUp" class="form-certificate">
+                            <label for="img-cert">Upload Certificate</label>
+                            <input
+                                :change="certificate.img"
+                                class="file-input"
+                                type="file"
+                                name="img-cert"
+                                id="img-cert"
+                                ref="imgCert"
+                            />
+                            <input
+                                v-model="certificate.name"
+                                type="text"
+                                name="name-certificate"
+                                id="name-certificate"
+                                placeholder="Certificate Name"
+                            />
+                            <button class="btn" type="submit">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <p>2023 &copy; Whilmar Bitoco. All rights reserved.</p>
+            </footer>
+        </div>
+        <script src="js/vue.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>
